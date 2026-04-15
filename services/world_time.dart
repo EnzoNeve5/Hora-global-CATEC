@@ -13,26 +13,31 @@ class WorldTime {
   WorldTime({ required this.location, required this.flag, required this.url, required this.isDaytime });
 
   Future<void> getTime() async {
+    try {
+      // make the request
+      Response response = await get(Uri.parse('https://timeapi.io/api/Time/current/zone?timeZone=$url'))
+          .timeout(const Duration(seconds: 10));
+      
+      if (response.statusCode == 200) {
+        Map data = jsonDecode(response.body);
 
-    // make the request
-    Response response = await get(Uri.parse('http://worldtimeapi.org/api/timezone/$url'));
-    Map data = jsonDecode(response.body);
-    // print(data);
+        // get properties from data
+        String datetime = data['dateTime'];
+        
+        // create DateTime object
+        DateTime now = DateTime.parse(datetime);
 
-    String datetime = data['datetime'];
-    String offset = data['utc_offset'].substring(0,3);
-    // print(datetime);
-    // print(offset);
-
-    // Create DateTime object
-    DateTime now = DateTime.parse(datetime);
-    now = now.add(Duration(hours: int.parse(offset)));
-    print(now);
-
-    // set the time property
-    isDaytime = now.hour > 6 && now.hour < 18 ? true : false;
-    time = DateFormat.jm().format(now);
-
+        // set the time property
+        isDaytime = now.hour > 6 && now.hour < 18;
+        time = DateFormat.jm().format(now);
+      } else {
+        print('Server error: ${response.statusCode}');
+        time = 'could not get time data';
+      }
+    } catch (e) {
+      print('caught error: $e');
+      time = 'could not get time data';
+    }
   }
 
 }
