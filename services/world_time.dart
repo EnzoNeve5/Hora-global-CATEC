@@ -32,11 +32,11 @@ class WorldTime {
         time = DateFormat.jm().format(now);
       } else {
         print('Server error: ${response.statusCode}');
-        time = 'could not get time data';
+        time = 'Não foi possível obter dados';
       }
     } catch (e) {
       print('caught error: $e');
-      time = 'could not get time data';
+      time = 'Não foi possível obter dados';
     }
   }
 
