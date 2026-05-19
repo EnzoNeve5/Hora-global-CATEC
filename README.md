@@ -52,7 +52,6 @@ O projeto está organizado nos seguintes módulos:
 ---
 
 ## 6. Roadmap de Melhorias
-* [ ] **Busca Dinâmica:** Implementar uma barra de pesquisa na tela de seleção de locais.
 * [ ] **Favoritos:** Permitir salvar uma lista de cidades favoritas para acesso rápido.
 * [ ] **Suporte Offline:** Cachear o último horário consultado caso não haja conexão.
 
@@ -60,4 +59,4 @@ O projeto está organizado nos seguintes módulos:
 
 ## 7. Dependências e Recursos
 * **API Externa:** `http://worldtimeapi.org/api/timezone/`
-* **Assets:** Imagens de fundo para representar `day.png` e `night.png` e imagens de bandeiras locais.
+* **Assets:** Imagens de fundo para representar `dia.png` e `noite.png` e imagens de bandeiras locais.
