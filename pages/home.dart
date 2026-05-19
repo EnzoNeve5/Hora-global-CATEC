@@ -18,6 +18,7 @@ class _HomeState extends State<Home> {
     // set background
     String bgImage = data['isDaytime'] ? 'dia.png' : 'noite.png';
     Color? bgColor = data['isDaytime'] ? Colors.lightBlue : Colors.indigo[700];
+    Color textColor = data['isDaytime'] ? Colors.black : Colors.white;
 
     return Scaffold(
       backgroundColor: bgColor,
@@ -46,13 +47,13 @@ class _HomeState extends State<Home> {
                     });
                   },
                   icon: Icon(
-                    Icons.edit_location,
-                    color: Colors.green[300],
+                    Icons.location_on,
+                    color: Colors.green[900],
                   ),
                   label: Text(
-                    'Editar Localização',
+                    'Mudar Localização',
                     style: TextStyle(
-                      color: Colors.green[300],
+                      color: Colors.green[900],
                     ),
                   ),
                 ),
@@ -65,7 +66,7 @@ class _HomeState extends State<Home> {
                       style: TextStyle(
                         fontSize: 28.0,
                         letterSpacing: 2.0,
-                        color: Colors.grey,
+                        color: textColor,
                       ),
                     ),
                   ],
@@ -75,7 +76,7 @@ class _HomeState extends State<Home> {
                   data['time'],
                   style: TextStyle(
                     fontSize: 66.0,
-                    color: Colors.grey,
+                    color: textColor,
                   ),
                 ),
               ],

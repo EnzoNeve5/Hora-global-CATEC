@@ -9,8 +9,9 @@ class WorldTime {
   String flag; // url to an asset flag icon
   String url; // location url for api endpoint
   bool isDaytime; // true or false if daytime or not
+  String? country; // country name
 
-  WorldTime({ required this.location, required this.flag, required this.url, required this.isDaytime });
+  WorldTime({ required this.location, required this.flag, required this.url, required this.isDaytime, this.country });
 
   Future<void> getTime() async {
     try {
